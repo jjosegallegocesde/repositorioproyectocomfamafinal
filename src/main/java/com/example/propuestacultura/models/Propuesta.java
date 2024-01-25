@@ -1,19 +1,42 @@
 package com.example.propuestacultura.models;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name="propuestas")
 public class Propuesta {
 
-    private Integer id_propuesta;
-    private Integer id_proponente;
-    private String nombre_propuesta;
-    private String descripcion_actividades;
-    private String descripcion_propuesta;
-    private LocalDate fecha_presentacion;
-    private String publico_beneficiado;
-    private String empresas_aliadas;
-    private Integer estado_propuesta;
-    private LocalDate fecha_inicio_evento;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name="id_propuesta")
+   private Integer idPropuesta;
+
+   @ManyToOne
+   @JoinColumn(name="id_solicitante",referencedColumnName = "id_solicitante")
+   private Solicitante solicitante;
+
+   @ManyToOne
+   @JoinColumn(name="id_estado", referencedColumnName = "id_estado")
+   private Estados estado;
+
+
+   private String municipio;
+   private String nombrePropuesta;
+   private String presentacionGeneral;
+   private LocalDate fechaPresentacionPropuesta;
+   private String descripcionActividades;
+   private String publicoBeneficiado;
+   private String entidadesAliadas;
+   private String contraprestaciones;
+   private Double montoTotal;
+   private Double aporteComfamaMonetario;
+   private String aporteComfamaEspecie;
+   private Double porcentajeAporteCOmfama;
+   private String trayectoria;
+
+
 
 
 }
