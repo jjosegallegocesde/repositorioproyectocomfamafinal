@@ -33,7 +33,7 @@ public class Propuesta {
    private Double montoTotal;
    private Double aporteComfamaMonetario;
    private String aporteComfamaEspecie;
-   private Double porcentajeAporteCOmfama;
+   private Double porcentajeAporteComfama;
    private String trayectoria;
 
 
