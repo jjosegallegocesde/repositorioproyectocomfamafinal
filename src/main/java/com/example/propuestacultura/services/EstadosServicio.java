@@ -15,18 +15,27 @@ public class EstadosServicio {
 
     //LISTAN LOS METODOS PARA ACCIONAR LA LOGICA DE NEGOCIO
     //ALMACENAR EN LA BD UN ESTADO
-    public Estados agregarEstado(Estados datosEstado){}
+    public Estados agregarEstado(Estados datosEstado) throws Exception{
+        try {
+            //Aplico las validaciones necesarias
+            //llama al repositorio e intenta realizar la op en BD
+            return this.iEstadosRepositorio.save(datosEstado);
+        }catch(Exception error){
+            throw new Exception(error.getMessage());
+        }
+
+    }
     //BUSCAR TODOS LOS ESTADOS QUE HAY EN UNA BD
-    public List<Estados> buscarTodosEstados(){}
+    //public List<Estados> buscarTodosEstados(){}
 
     //BUSCAR UN ESTADO POR ID
-    public Estados buscarEstadoPorId(Integer id){}
+    //public Estados buscarEstadoPorId(Integer id){}
 
     //MODIFICAR EL NOMBRE DE UN ESTADO
-    public Estados modificarEstado(Integer id, Estados datosModificar){}
+    //public Estados modificarEstado(Integer id, Estados datosModificar){}
 
     //ELIMINAR UN ESTADO DE LA BD
-    public Boolean eliminarEstado(Integer id){}
+    //public Boolean eliminarEstado(Integer id){}
 
 
 }
