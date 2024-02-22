@@ -46,6 +46,19 @@ public class EstadosControlador {
         }
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Estados> buscarPorId(@PathVariable Integer id){
+        try{
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(estadosServicio.buscarEstadoPorId(id));
+        }catch(Exception error){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(null);
+        }
+    }
+
 
 
 }

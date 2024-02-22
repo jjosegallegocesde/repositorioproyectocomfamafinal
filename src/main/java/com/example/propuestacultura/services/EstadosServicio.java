@@ -35,7 +35,17 @@ public class EstadosServicio {
     }
 
     //BUSCAR UN ESTADO POR ID
-    //public Estados buscarEstadoPorId(Integer id){}
+    public Estados buscarEstadoPorId(Integer id) throws Exception{
+        try{
+            if(this.iEstadosRepositorio.findById(id).isPresent()){
+                return this.iEstadosRepositorio.findById(id).get();
+            }else{
+                throw new Exception("Estado no encontrado");
+            }
+        }catch(Exception error){
+            throw new Exception(error.getMessage());
+        }
+    }
 
     //MODIFICAR EL NOMBRE DE UN ESTADO
     //public Estados modificarEstado(Integer id, Estados datosModificar){}
