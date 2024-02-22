@@ -23,10 +23,16 @@ public class EstadosServicio {
         }catch(Exception error){
             throw new Exception(error.getMessage());
         }
-
     }
+
     //BUSCAR TODOS LOS ESTADOS QUE HAY EN UNA BD
-    //public List<Estados> buscarTodosEstados(){}
+    public List<Estados> buscarTodosEstados()throws Exception{
+        try{
+            return this.iEstadosRepositorio.findAll();
+        }catch(Exception error){
+            throw new Exception(error.getMessage());
+        }
+    }
 
     //BUSCAR UN ESTADO POR ID
     //public Estados buscarEstadoPorId(Integer id){}

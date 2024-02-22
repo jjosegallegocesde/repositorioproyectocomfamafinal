@@ -5,10 +5,9 @@ import com.example.propuestacultura.services.EstadosServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/estado")
@@ -32,5 +31,21 @@ public class EstadosControlador {
 
         }
     }
+
+    @GetMapping
+    public ResponseEntity<List<Estados>> buscarTodos(){
+        try{
+            return ResponseEntity
+                    .status(HttpStatus.FOUND)
+                    .body(estadosServicio.buscarTodosEstados());
+        }catch(Exception error){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(null);
+
+        }
+    }
+
+
 
 }
